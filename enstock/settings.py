@@ -46,7 +46,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://localhost:3001",
     "http://127.0.0.1:8000",
-    "https://enstock-front.vercel.app/",
+    "http://127.0.0.1:3000",
+    # "https://enstock-front.vercel.app/",
 ]
 
 MIDDLEWARE = [
@@ -86,10 +87,10 @@ WSGI_APPLICATION = 'enstock.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd3t9hs57fkdjcu',
-        'USER': 'loehnlwaxydyom',
-        'PASSWORD': '27e999cef0f10e6351743afe4b8283cde6ba046c4d4c1438cdc432e7e5b0b6fd',
-        'HOST': 'ec2-54-82-208-124.compute-1.amazonaws.com',
+        'NAME': 'enstockdb',
+        'USER': 'postgres',
+        'PASSWORD': 'P247247laura1',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }

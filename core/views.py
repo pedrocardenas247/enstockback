@@ -1,16 +1,28 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .serializers import CategorySerializer
+from .serializers import CategorySerializer, StoresSerializer, ListStoresSerializer
 from rest_framework import viewsets, generics
-from .models import Categories
+from .models import Categories, Store
 from rest_framework.permissions import AllowAny
 from django.contrib.auth.models import User
 import json
+import pyrebase
+
+
+with open('config.json', 'r') as file:
+    config = json.load(file)
+firebase = pyrebase.initialize_app(config['config_firebase'])
+database = firebase.database()
 
 
 def index(request):
     template_name = "index.html"
     return render(request, template_name)
+
+
+def get_default_store():
+    return Store.objects.get(name="title")
+
 
 class CategoryFullViewset(viewsets.ModelViewSet):
     queryset = Categories.objects.all()
@@ -18,13 +30,13 @@ class CategoryFullViewset(viewsets.ModelViewSet):
     permission_classes = (AllowAny,)
 
 
-# class RegisterStore(generics.CreateAPIView):
-#     def post(self, request, format=None):
-#         username=request.data['username']
-#         email = request.data['email']
-#         password = request.data['password']
-#         user = User.objects.create_user(username, email, password)
-#         user.save()
-#         data = {'detail': 'User save correct!!!!'}
-#         reply = json.dumps(data)
-#         return HttpResponse(reply, content_type='application/json')
+class StoreFullViewset(viewsets.ModelViewSet):
+    queryset = Store.objects.all()
+    serializer_class = StoresSerializer
+    permission_classes = (AllowAny,)
+
+
+class ListStoresSerializerViewset(viewsets.ModelViewSet):
+    queryset = Categories.objects.all()
+    serializer_class = ListStoresSerializer
+    permission_classes = (AllowAny,)

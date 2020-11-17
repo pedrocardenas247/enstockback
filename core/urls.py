@@ -5,6 +5,8 @@ from .views import index
 
 router = routers.DefaultRouter()
 router.register('Full_Categories', views.CategoryFullViewset)
+router.register('Full_Stores', views.StoreFullViewset)
+router.register('Full_ListStores', views.ListStoresSerializerViewset)
 
 urlpatterns = [
     path('', index, name='index'),
