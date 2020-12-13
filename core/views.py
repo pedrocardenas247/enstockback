@@ -1,18 +1,12 @@
-from django.http import HttpResponse
 from django.shortcuts import render
-from .serializers import CategorySerializer, StoresSerializer, ListStoresSerializer
-from rest_framework import viewsets, generics
-from .models import Categories, Store
-from rest_framework.permissions import AllowAny
-from django.contrib.auth.models import User
-import json
-import pyrebase
-
-
-with open('config.json', 'r') as file:
-    config = json.load(file)
-firebase = pyrebase.initialize_app(config['config_firebase'])
-database = firebase.database()
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework_simplejwt.views import TokenObtainPairView
+from .serializers import CategoriesProdSerializer, StoresSerializer, CategorySerializer, \
+    ProductStoreSerializer, MyTokenObtainPairSerializer
+from rest_framework import viewsets, filters
+from .models import Categories, Store, CategoriesProd, ProductStore
+from rest_framework.permissions import AllowAny, IsAuthenticated
 
 
 def index(request):
@@ -20,13 +14,37 @@ def index(request):
     return render(request, template_name)
 
 
-def get_default_store():
-    return Store.objects.get(name="title")
+# class UserViewSet(viewsets.ModelViewSet):
+#     queryset = User.objects.all()
+#     serializer_class = RegisterSerializer
+#     permission_classes = (AllowAny,)
+
+class MyObtainTokenPairView(TokenObtainPairView):
+    permission_classes = (AllowAny,)
+    serializer_class = MyTokenObtainPairSerializer
 
 
-class CategoryFullViewset(viewsets.ModelViewSet):
-    queryset = Categories.objects.all()
-    serializer_class = CategorySerializer
+class HelloView(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, request):
+        content = {'message': 'Hello, World!'}
+        return Response(content)
+
+
+class ProductStoreViewSet(viewsets.ModelViewSet):
+    queryset = ProductStore.objects.all()
+    serializer_class = ProductStoreSerializer
+    # filter_backends = (DjangoFilterBackend,)
+    # filterset_fields = ["title",]
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['title', 'description']
+    permission_classes = (AllowAny,)
+
+
+class CategoriesProdViewSet(viewsets.ModelViewSet):
+    queryset = CategoriesProd.objects.all()
+    serializer_class = CategoriesProdSerializer
     permission_classes = (AllowAny,)
 
 
@@ -36,7 +54,9 @@ class StoreFullViewset(viewsets.ModelViewSet):
     permission_classes = (AllowAny,)
 
 
-class ListStoresSerializerViewset(viewsets.ModelViewSet):
+class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Categories.objects.all()
-    serializer_class = ListStoresSerializer
+    serializer_class = CategorySerializer
     permission_classes = (AllowAny,)
+
+
