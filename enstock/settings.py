@@ -155,7 +155,6 @@ DATABASES = {
         'USER': 'qjdgmdzahtrtco',
         'PASSWORD': 'aca8af54138d8fa567e5e0bbea07622b9651908af64ac49f1f03b7224b97ffcb',
         'HOST': 'ec2-54-235-116-235.compute-1.amazonaws.com',
-        'PORT': '5432',
     }
 }
 
