@@ -1,1 +1,1 @@
-web: gunicorn enstock.wsgi --log-file=-
+web: gunicorn enstock.wsgi
