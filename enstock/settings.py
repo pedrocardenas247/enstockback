@@ -142,6 +142,8 @@ REST_FRAMEWORK = {
     ],
 }
 
+GEOS_LIBRARY_PATH = '/home/bob/local/lib/libgeos_c.so'
+
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
