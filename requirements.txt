@@ -60,7 +60,6 @@ Flask-MySQLdb==0.2.0
 Flask-SQLAlchemy==2.4.4
 future==0.18.2
 gcloud==0.18.3
-GDAL @ file:///C:/GDAL-3.1.4-cp38-cp38-win_amd64.whl
 gem==0.1.12
 generics==2.0.0
 google-api-core==1.23.0
