@@ -43,9 +43,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '-w_wnss3@04%fu58tg81%x7xh*3%445l#-=2i-=ookx-8@*r#+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['https://enstockfinal.herokuapp.com/', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -104,7 +104,7 @@ ROOT_URLCONF = 'enstock.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'build')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
