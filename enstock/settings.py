@@ -127,10 +127,10 @@ WSGI_APPLICATION = 'enstock.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'd7cerk3kjr0rc6',
-        'USER': 'zrpnhhlmeesfan',
-        'PASSWORD': '04da1cf7ba602eeda388de6fde120e22ad851d3a5707e4e3970c8124afb58c95',
-        'HOST': 'ec2-52-6-75-198.compute-1.amazonaws.com',
+        'NAME': 'django',
+        'USER': 'django',
+        'PASSWORD': '23919891c22be436c905fcf39bad9fe8',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
