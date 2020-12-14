@@ -27,7 +27,7 @@ if os.name == 'nt':
         OSGEO4W += "64"
     assert os.path.isdir(OSGEO4W), "Directory does not exist: " + OSGEO4W
     os.environ['OSGEO4W_ROOT'] = OSGEO4W
-    # os.environ['GDAL_DATA'] = OSGEO4W + r"\share\gdal"
+    os.environ['GDAL_DATA'] = OSGEO4W + r"\share\gdal"
     os.environ['PROJ_LIB'] = OSGEO4W + r"\share\proj"
     os.environ['PATH'] = OSGEO4W + r"\bin;" + os.environ['PATH']
 
@@ -127,7 +127,7 @@ WSGI_APPLICATION = 'enstock.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'django',
         'USER': 'django',
         'PASSWORD': '23919891c22be436c905fcf39bad9fe8',
