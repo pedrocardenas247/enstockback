@@ -152,10 +152,11 @@ WSGI_APPLICATION = 'enstock.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'df63cp2ovsdose',
-        'USER': 'qjdgmdzahtrtco',
-        'PASSWORD': 'aca8af54138d8fa567e5e0bbea07622b9651908af64ac49f1f03b7224b97ffcb',
-        'HOST': 'ec2-54-235-116-235.compute-1.amazonaws.com',
+        'NAME': 'dcdh8nl6krd5gi',
+        'USER': 'ifoaqsrndehnuw',
+        'PASSWORD': 'ff7fa2b8c6e45ac323115111e208323812ad78fca449487a3997a1de2ee2ef05',
+        'HOST': 'ec2-54-156-149-189.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -208,14 +209,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 # STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
 # Activate Django-Heroku.
