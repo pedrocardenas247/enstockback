@@ -13,7 +13,7 @@ import os
 from datetime import timedelta
 from pathlib import Path
 # import django_heroku
-import dj_database_url
+# import dj_database_url
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
