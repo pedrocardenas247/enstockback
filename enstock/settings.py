@@ -50,7 +50,6 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    # 'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -80,32 +79,6 @@ LEAFLET_CONFIG = {
     "DEFAULT_PRECISION": 6,
     'RESET_VIEW': False,
 }
-
-# JAZZMIN_UI_TWEAKS = {
-#     "theme": "minty",
-# }
-
-JAZZMIN_SETTINGS = {
-    # title of the window
-    # "site_title": "Library Admin",
-    #
-    # # Title on the brand, and the login screen (19 chars max)
-    # "site_header": ".",
-    #
-    # # square logo to use for your site, must be present in static files, used for favicon and brand on top left
-    # "site_logo": "logo.png",
-
-    # Relative paths to custom CSS/JS scripts (must be present in static files)
-    # "custom_css": "custom.css",
-    # "custom_js": None,
-    # # Whether to show the UI customizer on the sidebar
-    # "show_ui_builder": True,
-}
-
-# JAZZMIN_UI_TWEAKS = {
-#     "theme": "flatly",
-#     "dark_mode_theme": "flatly",
-# }
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
