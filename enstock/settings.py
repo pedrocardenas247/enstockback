@@ -43,9 +43,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '-w_wnss3@04%fu58tg81%x7xh*3%445l#-=2i-=ookx-8@*r#+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://enstockfinal.herokuapp.com/', 'localhost', '127.0.0.1']
 
 # Application definition
 
@@ -185,7 +185,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 # STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
 # Activate Django-Heroku.
